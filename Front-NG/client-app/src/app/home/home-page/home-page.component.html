@@ -1,1 +1,40 @@
-<p>home-page works!</p>
+<app-header></app-header>
+<main>
+  <mat-tab-group>
+    <mat-tab label="en cours">
+      <div class="match-list">
+        <div>
+          <h2>Matches en Cours</h2>
+          <ul>
+            <ng-container *ngFor="let match of allMatches">
+              <li *ngIf="!match.finished">
+                {{ match.localTeam }} {{ match.localTeamScore }} -
+                {{ match.visitorTeamScore }} {{ match.visitorTeam }} ({{
+                  match.tournament
+                }}) - {{ match.matchDate | date : "dd/MM/yyyy" }}
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="terminé">
+      <div class="match-list">
+        <div>
+          <h2>Matches Précédents</h2>
+          <ul>
+            <ng-container *ngFor="let match of allMatches">
+              <li *ngIf="match.finished">
+                {{ match.localTeam }} {{ match.localTeamScore }} -
+                {{ match.visitorTeamScore }} {{ match.visitorTeam }} ({{
+                  match.tournament
+                }}) - {{ match.matchDate | date : "dd/MM/yyyy" }}
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</main>
+<app-footer></app-footer>

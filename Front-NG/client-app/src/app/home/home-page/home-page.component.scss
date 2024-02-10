@@ -1,0 +1,15 @@
+main {
+  width: 100vw;
+  height: 80vh;
+}
+
+.match-list {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Roboto";
+  color: white;
+}
